@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Wolves - Gallery</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="js/data-manager.js"></script>
+</head>
+<body class="gallery-page">
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="wolf-icon">🐺</span>
+                <h1>FC WOLVES</h1>
+            </div>
+            <nav class="nav">
+                <a href="fan.html" class="nav-link">Fan Portal</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="#team-photos" class="nav-link">Team</a>
+                <a href="#match-photos" class="nav-link">Matches</a>
+                <a href="#stadium-photos" class="nav-link">Stadium</a>
+                <a href="index.html" class="logout-btn">Home</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>FC Wolves Gallery 📸</h2>
+                <p>Capturing moments of glory, passion, and team spirit</p>
+                <div class="gallery-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Photos</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">30</span>
+                        <span class="stat-label">Years</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Matches</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="gallery-sections">
+            <section id="team-photos" class="gallery-section">
+                <h3><span class="icon">👥</span> Team Photos</h3>
+                <div class="photo-grid" id="teamPhotosGrid">
+                    <!-- Team photos will be loaded here -->
+                </div>
+            </section>
+
+            <section id="match-photos" class="gallery-section">
+                <h3><span class="icon">⚽</span> Match Highlights</h3>
+                <div class="photo-grid" id="matchPhotosGrid">
+                    <!-- Match photos will be loaded here -->
+                </div>
+            </section>
+
+            <section id="stadium-photos" class="gallery-section">
+                <h3><span class="icon">🏟️</span> Stadium & Facilities</h3>
+                <div class="photo-grid" id="stadiumPhotosGrid">
+                    <!-- Stadium photos will be loaded here -->
+                </div>
+            </section>
+
+            <section class="gallery-section">
+                <h3><span class="icon">🏆</span> Trophy Collection</h3>
+                <div class="trophy-showcase">
+                    <div class="trophy-item">
+                        <div class="trophy-icon">🥇</div>
+                        <h4>Regional Championship 2023</h4>
+                        <p>Our latest triumph in the regional league</p>
+                    </div>
+                    <div class="trophy-item">
+                        <div class="trophy-icon">🏆</div>
+                        <h4>National Cup 2022</h4>
+                        <p>Victory in the prestigious national cup</p>
+                    </div>
+                    <div class="trophy-item">
+                        <div class="trophy-icon">⭐</div>
+                        <h4>League Champions 2021</h4>
+                        <p>Dominating the league with style</p>
+                    </div>
+                    <div class="trophy-item">
+                        <div class="trophy-icon">🎖️</div>
+                        <h4>Fair Play Award 2023</h4>
+                        <p>Recognition for sportsmanship</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Photo Modal -->
+    <div id="photoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closePhotoModal()">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <div class="modal-info">
+                <h4 id="modalTitle"></h4>
+                <p id="modalDescription"></p>
+                <div class="modal-actions">
+                    <button onclick="previousPhoto()" class="nav-btn">❮ Previous</button>
+                    <button onclick="nextPhoto()" class="nav-btn">Next ❯</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>FC Wolves Gallery</h4>
+                <p>Preserving memories, celebrating victories</p>
+            </div>
+            <div class="footer-section">
+                <h4>Share Your Photos</h4>
+                <p>Email: photos@fcwolves.com</p>
+                <p>Tag us: #FCWolves</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 FC Wolves. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/gallery.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,273 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Wolves - Admin Panel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="js/data-manager.js"></script>
+</head>
+<body class="admin-page">
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="wolf-icon">🐺</span>
+                <h1>FC WOLVES - ADMIN</h1>
+            </d            <nav class="nav">
+                <a href="fan.html" class="nav-link">Fan Portal</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="#players" class="nav-link">Players</a>
+                <a href="#lineup" class="nav-link">Lineup</a>
+                <a href="index.html" class="logout-btn">Logout</a>
+            </nav>ref="fan.html" class="view-fan-btn">View Fan Page</a>
+                <a href="index.html" class="logout-btn">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>Admin Control Panel 🛠️</h2>
+                <p>Manage your team efficiently</p>
+                <div class="admin-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalPlayers">15</span>
+                        <span class="stat-label">Total Players</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="activeLineup">11</span>
+                        <span class="stat-label">Active Lineup</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="nextMatchDays">2</span>
+                        <span class="stat-label">Days to Match</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="admin-grid">
+            <!-- Player Management Section -->
+            <section id="players" class="admin-card">
+                <h3><span class="icon">👥</span> Player Management</h3>
+                
+                <div class="section-tabs">
+                    <button class="tab-btn active" onclick="showTab('add-player')">Add Player</button>
+                    <button class="tab-btn" onclick="showTab('manage-players')">Manage Players</button>
+                </div>
+
+                <div id="add-player" class="tab-content active">
+                    <form class="player-form" id="addPlayerForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="playerNumber">Jersey Number</label>
+                                <input type="number" id="playerNumber" min="1" max="99" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="playerName">Player Name</label>
+                                <input type="text" id="playerName" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="playerPosition">Position</label>
+                                <select id="playerPosition" required>
+                                    <option value="">Select Position</option>
+                                    <option value="Goalkeeper">Goalkeeper</option>
+                                    <option value="Right Back">Right Back</option>
+                                    <option value="Left Back">Left Back</option>
+                                    <option value="Center Back">Center Back</option>
+                                    <option value="Defensive Midfielder">Defensive Midfielder</option>
+                                    <option value="Central Midfielder">Central Midfielder</option>
+                                    <option value="Attacking Midfielder">Attacking Midfielder</option>
+                                    <option value="Right Midfielder">Right Midfielder</option>
+                                    <option value="Left Midfielder">Left Midfielder</option>
+                                    <option value="Right Winger">Right Winger</option>
+                                    <option value="Left Winger">Left Winger</option>
+                                    <option value="Striker">Striker</option>
+                                    <option value="Forward">Forward</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="playerImage">Player Image URL</label>
+                                <input type="url" id="playerImage" placeholder="https://example.com/player.jpg">
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn">Add Player</button>
+                    </form>
+                </div>
+
+                <div id="manage-players" class="tab-content">
+                    <div class="players-table-container">
+                        <table class="players-table" id="playersTable">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="playersTableBody">
+                                <!-- Players will be loaded dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lineup Management Section -->
+            <section id="lineup" class="admin-card">
+                <h3><span class="icon">⚽</span> Lineup Management</h3>
+                
+                <div class="formation-selector">
+                    <label for="formationSelect">Formation:</label>
+                    <select id="formationSelect" onchange="changeFormation()">
+                        <option value="4-3-3">4-3-3</option>
+                        <option value="4-4-2">4-4-2</option>
+                        <option value="3-5-2">3-5-2</option>
+                        <option value="4-2-3-1">4-2-3-1</option>
+                    </select>
+                </div>
+
+                <div class="lineup-builder" id="lineupBuilder">
+                    <div class="position-slots">
+                        <!-- Lineup positions will be generated dynamically -->
+                    </div>
+                </div>
+
+                <div class="lineup-actions">
+                    <button class="action-btn" onclick="saveLineup()">Save Lineup</button>
+                    <button class="action-btn secondary" onclick="resetLineup()">Reset</button>
+                </div>
+            </section>
+
+            <!-- Schedule Management Section -->
+            <section id="schedule" class="admin-card">
+                <h3><span class="icon">📅</span> Schedule Management</h3>
+                
+                <form class="schedule-form" id="scheduleForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="opponent">Opponent Team</label>
+                            <input type="text" id="opponent" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="matchDate">Match Date</label>
+                            <input type="date" id="matchDate" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="matchTime">Match Time</label>
+                            <input type="time" id="matchTime" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="venue">Venue</label>
+                            <input type="text" id="venue" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="isHome">Match Type</label>
+                        <select id="isHome">
+                            <option value="true">Home Match</option>
+                            <option value="false">Away Match</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit-btn">Update Match Schedule</button>
+                </form>
+            </section>
+
+            <!-- Team Status Section -->
+            <section id="status" class="admin-card">
+                <h3><span class="icon">📊</span> Team Status</h3>
+                
+                <div class="status-controls">
+                    <div class="form-group">
+                        <label for="teamStatus">Current Status</label>
+                        <select id="teamStatus" onchange="updateTeamStatus()">
+                            <option value="training">Training</option>
+                            <option value="match">Match Day</option>
+                            <option value="rest">Rest Day</option>
+                            <option value="travel">Travel</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="statusMessage">Status Message</label>
+                        <input type="text" id="statusMessage" placeholder="Enter custom status message">
+                    </div>
+                    <button class="action-btn" onclick="saveTeamStatus()">Update Status</button>
+                </div>
+
+                <div class="current-status-display">
+                    <h4>Current Team Status:</h4>
+                    <div class="status-indicator">
+                        <span class="status-dot" id="currentStatusDot"></span>
+                        <span class="status-text" id="currentStatusText">Training Today</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 FC Wolves Admin Panel. All rights reserved.</p>
+    </footer>
+
+    <!-- Edit Player Modal -->
+    <div id="editPlayerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditModal()">&times;</span>
+            <h3>Edit Player</h3>
+            <form id="editPlayerForm">
+                <input type="hidden" id="editPlayerIndex">
+                <div class="form-group">
+                    <label for="editPlayerNumber">Jersey Number</label>
+                    <input type="number" id="editPlayerNumber" min="1" max="99" required>
+                </div>
+                <div class="form-group">
+                    <label for="editPlayerName">Player Name</label>
+                    <input type="text" id="editPlayerName" required>
+                </div>
+                <div class="form-group">
+                    <label for="editPlayerPosition">Position</label>
+                    <select id="editPlayerPosition" required>
+                        <option value="">Select Position</option>
+                        <option value="Goalkeeper">Goalkeeper</option>
+                        <option value="Right Back">Right Back</option>
+                        <option value="Left Back">Left Back</option>
+                        <option value="Center Back">Center Back</option>
+                        <option value="Defensive Midfielder">Defensive Midfielder</option>
+                        <option value="Central Midfielder">Central Midfielder</option>
+                        <option value="Attacking Midfielder">Attacking Midfielder</option>
+                        <option value="Right Midfielder">Right Midfielder</option>
+                        <option value="Left Midfielder">Left Midfielder</option>
+                        <option value="Right Winger">Right Winger</option>
+                        <option value="Left Winger">Left Winger</option>
+                        <option value="Striker">Striker</option>
+                        <option value="Forward">Forward</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editPlayerImage">Player Image URL</label>
+                    <input type="url" id="editPlayerImage" placeholder="https://example.com/player.jpg">
+                </div>
+                <div class="modal-actions">
+                    <button type="submit" class="submit-btn">Save Changes</button>
+                    <button type="button" class="cancel-btn" onclick="closeEditModal()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
+

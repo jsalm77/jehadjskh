@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Wolves - Fans Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fan.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="js/data-manager.js"></script>
+</head>
+<body class="fan-page">
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="wolf-icon">🐺</span>
+                <h1>FC WOLVES</h1>
+            <            <nav class="nav">
+                <a href="about.html" class="nav-link">About</a>
+                <a href="gallery.html" class="nav-link">Gallery</a>
+                <a href="#players" class="nav-link">Players</a>
+                <a href="#lineup" class="nav-link">Lineup</a>
+                <a href="#match" class="nav-link">Next Match</a>
+                <a href="index.html" class="logout-btn">Logout</a>
+            </nav>f="index.html" class="logout-btn">Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>Welcome to the Pack! 🐺</h2>
+                <p>Stay updated with your favorite team</p>
+                <div class="status-indicator" id="teamStatus">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Training Today</span>
+                </div>
+            </div>
+        </section>
+
+        <div class="content-grid">
+            <section id="squad" class="card squad-section">
+                <h3><span class="icon">👥</span> Team Squad</h3>
+                <div class="players-grid" id="playersGrid">
+                    <!-- Players will be loaded dynamically -->
+                </div>
+            </section>
+
+            <section id="lineup" class="card lineup-section">
+                <h3><span class="icon">⚽</span> Today's Lineup</h3>
+                <div class="formation-display" id="formationDisplay">
+                    <div class="formation-title">Formation: 4-3-3</div>
+                    <div class="lineup-grid" id="lineupGrid">
+                        <!-- Lineup will be loaded dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <section id="schedule" class="card schedule-section">
+                <h3><span class="icon">📅</span> Next Match</h3>
+                <div class="match-info" id="matchInfo">
+                    <div class="match-teams">
+                        <div class="team home-team">
+                            <span class="team-icon">🐺</span>
+                            <span class="team-name">FC Wolves</span>
+                        </div>
+                        <div class="vs">VS</div>
+                        <div class="team away-team">
+                            <span class="team-icon">🦅</span>
+                            <span class="team-name">Eagles FC</span>
+                        </div>
+                    </div>
+                    <div class="match-details">
+                        <div class="match-date" id="matchDate">Sunday, June 16, 2025</div>
+                        <div class="match-time" id="matchTime">15:00</div>
+                        <div class="match-venue">Wolves Stadium</div>
+                    </div>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="days">2</span>
+                            <span class="countdown-label">Days</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="hours">14</span>
+                            <span class="countdown-label">Hours</span>
+                        </div>
+                        <div class="countdown-item">
+                            <span class="countdown-number" id="minutes">30</span>
+                            <span class="countdown-label">Minutes</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="field" class="card field-section">
+                <h3><span class="icon">🏟️</span> Field Positions</h3>
+                <div class="field-container">
+                    <div class="field-diagram" id="fieldDiagram">
+                        <img src="images/field_diagram.png" alt="Field Formation Diagram" class="field-image">
+                        <div class="formation-legend">
+                            <h4>4-3-3 Formation</h4>
+                            <div class="legend-grid">
+                                <div class="legend-item">
+                                    <span class="legend-number">1</span>
+                                    <span class="legend-text">Alex Martinez (GK)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-number">2</span>
+                                    <span class="legend-text">James Wilson (RB)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-number">4</span>
+                                    <span class="legend-text">Michael Brown (CB)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-number">5</span>
+                                    <span class="legend-text">David Johnson (CB)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-number">3</span>
+                                    <span class="legend-text">Carlos Rodriguez (LB)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-number">6</span>
+                                    <span class="legend-text">Thomas Anderson (CDM)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-number">8</span>
+                                    <span class="legend-text">Ryan O'Connor (CM)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-number">10</span>
+                                    <span class="legend-text">Ahmed Hassan (CAM)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-number">7</span>
+                                    <span class="legend-text">Lucas Silva (RW)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-number">9</span>
+                                    <span class="legend-text">Marco Rossi (ST)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-number">11</span>
+                                    <span class="legend-text">Gabriel Santos (LW)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 FC Wolves. All rights reserved.</p>
+    </footer>
+
+    <script src="js/fan.js"></script>
+</body>
+</html>
+

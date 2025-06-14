@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FC Wolves - Access Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <div class="login-container">
+        <div class="logo-section">
+            <div class="wolf-icon">🐺</div>
+            <h1>FC WOLVES</h1>
+            <p class="tagline">Enter the Pack</p>
+        </div>
+        
+        <div class="login-form">
+            <div class="input-group">
+                <input type="password" id="accessCode" placeholder="Enter Access Code" required>
+                <span class="input-highlight"></span>
+            </div>
+            
+            <button onclick="checkAccessCode()" class="login-btn">
+                <span>ACCESS</span>
+                <div class="btn-ripple"></div>
+            </button>
+            
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+        
+        <div class="footer-info">
+            <p>Authorized Personnel Only</p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
